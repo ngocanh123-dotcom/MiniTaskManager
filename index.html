@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Task Manager - Quản lý công việc</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Phần đầu trang -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">✓</div>
+            <div>
+                <h1>Mini Task Manager</h1>
+                <p>Ứng dụng quản lý công việc cá nhân</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Form thêm công việc -->
+        <section class="card">
+            <div class="section-heading">
+                <h2>Thêm công việc</h2>
+            </div>
+
+            <form id="task-form" novalidate>
+                <div class="form-group">
+                    <label for="task-name">Tên công việc</label>
+                    <input
+                        type="text"
+                        id="task-name"
+                        placeholder="Nhập tên công việc (bắt buộc)"
+                        maxlength="150"
+                        autocomplete="off"
+                    >
+                    <p id="error-msg" class="error" role="alert"></p>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-date">Hạn hoàn thành</label>
+                        <input type="date" id="task-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-priority">Độ ưu tiên</label>
+                        <select id="task-priority">
+                            <option value="Cao">Cao</option>
+                            <option value="Trung bình" selected>
+                                Trung bình
+                            </option>
+                            <option value="Thấp">Thấp</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    + Thêm công việc
+                </button>
+            </form>
+        </section>
+
+        <!-- Danh sách công việc -->
+        <section class="card">
+            <div class="section-heading list-heading">
+                <h2>Danh sách công việc</h2>
+                <span id="task-count" class="task-count">
+                    0 công việc
+                </span>
+            </div>
+
+            <!-- Tìm kiếm, lọc và sắp xếp -->
+            <div class="filter-section">
+                <div class="form-group search-group">
+                    <label for="search-input">Tìm kiếm</label>
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Tìm theo tên công việc..."
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="status-filter">Trạng thái</label>
+                    <select id="status-filter">
+                        <option value="all">Tất cả</option>
+                        <option value="pending">Chưa hoàn thành</option>
+                        <option value="completed">Đã hoàn thành</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sort-filter">Sắp xếp hạn</label>
+                    <select id="sort-filter">
+                        <option value="asc">Hạn gần nhất</option>
+                        <option value="desc">Hạn xa nhất</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Thống kê số lượng -->
+            <div class="task-summary">
+                <span>Tổng số: <strong id="total-count">0</strong></span>
+                <span>Chưa xong: <strong id="pending-count">0</strong></span>
+                <span>Đã xong: <strong id="completed-count">0</strong></span>
+            </div>
+
+            <!-- JavaScript tự tạo các công việc trong vùng này -->
+            <ul id="task-list" class="task-list"></ul>
+
+            <p id="empty-msg" class="empty-message" hidden>
+                Không tìm thấy công việc phù hợp.
+            </p>
+        </section>
+    </main>
+
+    <!-- Chân trang -->
+    <footer class="footer">
+        <p>Mini Task Manager &copy; 2026</p>
+        <p>
+            Họ tên: <strong>Phạm Ngọc Anh</strong>
+            <span>|</span>
+            MSSV: <strong>224001712</strong>
+            <span>|</span>
+            Lớp: <strong>Toán Ứng Dụng D2024</strong>
+        </p>
+    </footer>
+</body>
+</html>

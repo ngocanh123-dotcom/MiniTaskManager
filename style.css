@@ -1,0 +1,568 @@
+
+/* =====================================
+   1. CAU HINH CHUNG
+===================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --xanh-chinh: #176b50;
+    --xanh-dam: #10543e;
+    --xanh-nhat: #e9f5ef;
+    --nen: #f3f6f8;
+    --trang: #ffffff;
+    --chu: #25332f;
+    --chu-phu: #6d7b76;
+    --vien: #dfe7e2;
+    --do: #d93645;
+    --xanh-duong: #245b83;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--nen);
+    color: var(--chu);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =====================================
+   2. HEADER
+===================================== */
+.header {
+    width: 100%;
+    background: var(--xanh-chinh);
+    color: var(--trang);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.header-content {
+    width: min(100% - 40px, 1000px);
+    min-height: 95px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 0;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--trang);
+    color: var(--xanh-chinh);
+    border-radius: 12px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.header h1 {
+    font-size: 25px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.header p {
+    color: #d9eee5;
+    font-size: 13px;
+}
+
+/* =====================================
+   3. KHU VUC NOI DUNG
+===================================== */
+.container {
+    width: min(100% - 40px, 1000px);
+    margin: 28px auto;
+    flex: 1;
+}
+
+.card {
+    background: var(--trang);
+    border: 1px solid var(--vien);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 18px rgba(32, 66, 51, 0.06);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    text-align: left;
+    color: var(--xanh-chinh);
+    font-size: 20px;
+}
+
+.task-count {
+    padding: 5px 11px;
+    border-radius: 20px;
+    background: var(--xanh-nhat);
+    color: var(--xanh-chinh);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* =====================================
+   4. FORM THEM CONG VIEC
+===================================== */
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+}
+
+.form-group {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    color: #354840;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #d7e1db;
+    border-radius: 7px;
+    background: var(--trang);
+    color: var(--chu);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input::placeholder {
+    color: #9aa8a1;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--xanh-chinh);
+    box-shadow: 0 0 0 3px rgba(23, 107, 80, 0.12);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* =====================================
+   5. CAC NUT BAM
+===================================== */
+button {
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s,
+                transform 0.2s,
+                box-shadow 0.2s;
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(36, 91, 131, 0.3);
+    outline-offset: 2px;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.btn-primary {
+    width: fit-content;
+    min-height: 42px;
+    padding: 11px 20px;
+    background: var(--xanh-chinh);
+    color: var(--trang);
+}
+
+.btn-primary:hover {
+    background: var(--xanh-dam);
+    box-shadow: 0 3px 8px rgba(23, 107, 80, 0.18);
+}
+
+/* =====================================
+   6. THONG BAO LOI
+===================================== */
+.error {
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    color: var(--do);
+    font-size: 12px;
+}
+
+.error:not(:empty) {
+    margin-top: 2px;
+}
+
+.empty-message {
+    margin-top: 18px;
+    padding: 22px 12px;
+    border-radius: 8px;
+    background: #f7faf8;
+    color: var(--chu-phu);
+    text-align: center;
+}
+
+/* =====================================
+   7. TIM KIEM, LOC, SAP XEP
+===================================== */
+.filter-section {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.5fr)
+                           minmax(150px, 1fr)
+                           minmax(145px, 1fr);
+    gap: 14px;
+    align-items: end;
+    margin-bottom: 18px;
+}
+
+.filter-section .form-group {
+    margin-bottom: 0;
+}
+
+.search-group {
+    min-width: 0;
+}
+
+/* =====================================
+   8. THONG KE SO LUONG
+===================================== */
+.task-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-bottom: 17px;
+    padding: 13px 15px;
+    border-radius: 8px;
+    background: #f5f8f6;
+    color: var(--chu-phu);
+    font-size: 13px;
+}
+
+.task-summary strong {
+    color: var(--xanh-chinh);
+    font-size: 14px;
+}
+
+/* =====================================
+   9. DANH SACH CONG VIEC
+===================================== */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+/* Moi cong viec la mot the li */
+.task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin: 0;
+    border: 1px solid var(--vien);
+    border-left: 4px solid var(--xanh-chinh);
+    border-radius: 8px;
+    background: var(--trang);
+    transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.task-list li:hover {
+    background: #fcfefd;
+    box-shadow: 0 4px 12px rgba(32, 66, 51, 0.08);
+}
+
+.task-list li.completed {
+    border-left-color: #9aa8a1;
+    background: #f8faf9;
+}
+
+.task-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.task-name {
+    overflow-wrap: anywhere;
+    color: var(--chu);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.task-list li.completed .task-name {
+    color: #7c8983;
+    text-decoration: line-through;
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px 12px;
+    color: var(--chu-phu);
+    font-size: 12px;
+}
+
+.priority {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.priority-high {
+    background: #ffebeb;
+    color: #b72f3c;
+}
+
+.priority-medium {
+    background: #fff2d8;
+    color: #986414;
+}
+
+.priority-low {
+    background: #e4f4e9;
+    color: #247342;
+}
+
+.status-text {
+    color: var(--xanh-chinh);
+    font-weight: bold;
+}
+
+/* Cac nut hanh dong cua tung cong viec */
+.task-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.btn-complete,
+.btn-delete {
+    min-height: 35px;
+    padding: 8px 12px;
+    color: var(--trang);
+    font-size: 12px;
+}
+
+.btn-complete {
+    background: var(--xanh-duong);
+}
+
+.btn-complete:hover {
+    background: #194665;
+}
+
+.btn-delete {
+    background: var(--do);
+}
+
+.btn-delete:hover {
+    background: #a82e39;
+}
+
+/* =====================================
+   10. FOOTER
+===================================== */
+.footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 18px 15px 24px;
+    text-align: center;
+    color: var(--chu-phu);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.footer p {
+    margin: 3px 0;
+}
+
+.footer strong {
+    color: var(--xanh-chinh);
+}
+
+.footer span {
+    margin: 0 5px;
+    color: #a4b0aa;
+}
+
+/* =====================================
+   11. RESPONSIVE - MAY TINH BANG
+===================================== */
+@media (max-width: 768px) {
+    .container {
+        width: calc(100% - 30px);
+        margin: 20px auto;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .filter-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-group {
+        grid-column: 1 / -1;
+    }
+
+    .task-list li {
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        flex-direction: column;
+    }
+
+    .btn-complete,
+    .btn-delete {
+        width: 100%;
+    }
+}
+
+/* =====================================
+   12. RESPONSIVE - DIEN THOAI 375PX
+===================================== */
+@media (max-width: 480px) {
+    .header-content {
+        width: calc(100% - 28px);
+        min-height: 80px;
+        gap: 10px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 24px;
+    }
+
+    .header h1 {
+        font-size: 19px;
+    }
+
+    .header p {
+        font-size: 11px;
+    }
+
+    .container {
+        width: calc(100% - 20px);
+        margin: 14px auto;
+    }
+
+    .card {
+        padding: 16px 13px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+    }
+
+    .section-heading {
+        margin-bottom: 17px;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    .filter-section {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .search-group {
+        grid-column: auto;
+    }
+
+    .task-summary {
+        gap: 8px 14px;
+        padding: 12px;
+    }
+
+    .task-list li {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 13px;
+    }
+
+    .task-actions {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .btn-complete,
+    .btn-delete {
+        width: auto;
+        flex: 1;
+        min-height: 36px;
+        padding: 8px 9px;
+    }
+
+    .footer {
+        padding: 14px 10px 20px;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Giam hieu ung chuyen dong neu nguoi dung yeu cau */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
